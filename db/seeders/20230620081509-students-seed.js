@@ -9,6 +9,7 @@ module.exports = {
       .split('\n')
       .map((row) => row.split('\t'))
       .map((rowAr) => ({ name: rowAr[0], git: rowAr[1] }));
+    // console.log(fileData);
     await queryInterface.bulkInsert('Students', students, {});
   },
 

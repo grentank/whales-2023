@@ -12,9 +12,16 @@ studentsRouter.get('/', async (req, res) => {
 });
 
 studentsRouter.post('/', async (req, res) => {
-  const { name, git } = req.body;
-  await Student.create({ name, git, bonus: 0 });
-  res.redirect('/students');
+  try {
+    const { name, git } = req.body;
+    if (name === '' || git === '')
+      return res.status(500).json({ message: 'Имя и git должны быть заполнены' });
+    const newStudent = await Student.create({ name, git, bonus: 0 });
+    res.json(newStudent);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
 });
 
 studentsRouter.get('/add', (req, res) => {

@@ -1,3 +1,7 @@
+# SSR
+public/app.js
+public/vendor.js
+
 # Logs
 logs
 *.log

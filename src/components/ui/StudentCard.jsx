@@ -11,8 +11,8 @@ export default function StudentCard({ student }) {
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h5 className="card-title">{student.name.split(' ')[0]}</h5>
-            <p className="card-text">{student.name.split(' ')[1]}</p>
+            <h5 className="card-title">{student.name?.split(' ')[0]}</h5>
+            <p className="card-text">{student.name?.split(' ')[1]}</p>
           </div>
         </div>
       </div>

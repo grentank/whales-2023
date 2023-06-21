@@ -29,6 +29,12 @@ export default function () {
             <a className="nav-link" href="/students/add">
               Add
             </a>
+            <a className="nav-link" href="/cats">
+              Cats/Facts
+            </a>
+            <a className="nav-link" href="/input">
+              Input group
+            </a>
           </div>
         </div>
       </div>
