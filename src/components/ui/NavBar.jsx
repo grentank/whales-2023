@@ -35,6 +35,9 @@ export default function () {
             <a className="nav-link" href="/input">
               Input group
             </a>
+            <a className="nav-link" href="/messages">
+              Messages
+            </a>
           </div>
         </div>
       </div>

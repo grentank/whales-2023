@@ -6,7 +6,9 @@ export default function ConfirmDeletePage({ oneStudent }) {
   // console.log(inputValue);
   const deleteHandler = () => {
     if (inputValue.toLowerCase() !== 'да') return;
-    fetch(`/students/${oneStudent.id}/delete/confirm`).then(() => (window.location = '/students'));
+    fetch(`/api/students/${oneStudent.id}`, {
+      method: 'DELETE',
+    }).then(() => (window.location = '/students'));
   };
   return (
     <div className="card">

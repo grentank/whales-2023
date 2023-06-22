@@ -5,8 +5,10 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import Layout from './components/Layout';
 import jsxRender from './utils/jsxRender';
-import studentsRouter from './routes/studentsRouter';
-import indexRouter from './routes/indexRouter';
+import studentsRouter from './routes/render/studentsRouter';
+import indexRouter from './routes/render/indexRouter';
+import apiMessagesRouter from './routes/api/apiMessagesRouter';
+import apiStudentsRouter from './routes/api/apiStudentsRouter';
 
 const app = express();
 const PORT = 3000;
@@ -24,6 +26,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/api/messages', apiMessagesRouter);
+app.use('/api/students', apiStudentsRouter);
 app.use('/', indexRouter);
 app.use('/students', studentsRouter);
 

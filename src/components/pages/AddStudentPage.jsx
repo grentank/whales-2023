@@ -7,7 +7,7 @@ export default function AddStudentPage() {
     const formData = Object.fromEntries(new FormData(event.target));
     // console.log('formData', formData);
     try {
-      const res = await fetch('/students', {
+      const res = await fetch('/api/students', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

@@ -9,9 +9,9 @@ import AddStudentPage from './pages/AddStudentPage';
 import NotFoundPage from './pages/NotFoundPage';
 import CatFactsPage from './pages/CatFactsPage';
 import InputGroup from './pages/InputGroup';
+import MessagesPage from './pages/MessagesPage';
 
-export default function App({ allStudents, oneStudent }) {
-  console.log('Greetings, ELbrus students!');
+export default function App({ allStudents, oneStudent, allMessages }) {
   return (
     <div className="container">
       <NavBar />
@@ -26,6 +26,10 @@ export default function App({ allStudents, oneStudent }) {
         <Route path="/students/add" element={<AddStudentPage />} />
         <Route path="/cats" element={<CatFactsPage />} />
         <Route path="/input" element={<InputGroup />} />
+        <Route
+          path="/messages"
+          element={<MessagesPage allMessages={allMessages} allStudents={allStudents} />}
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
