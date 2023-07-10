@@ -3,7 +3,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, '/public/img');
+    cb(null, './public/img');
   },
   filename(req, file, cb) {
     const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
@@ -31,12 +31,12 @@ apiProductsRouter
       if (!req.body?.title) return res.status(500).json({ message: 'Empty reqbody' });
       console.log(req.body);
       console.log(req.file);
-      const { title, description, price, img } = req.body;
+      const { title, description, price } = req.body;
       const newProduct = await Product.create({
         title,
         description,
         price: Number(price),
-        img: '1',
+        img: req.file.filename,
       });
       return res.json(newProduct);
     } catch (error) {

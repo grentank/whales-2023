@@ -12,7 +12,12 @@ function ProductCard({ product, deleteHandler, arr }: ProductCardProps): JSX.Ele
   console.log('render');
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={product.img} />
+      <Card.Img
+        variant="top"
+        src={
+          product.img.includes('http') ? product.img : `http://localhost:3000/img/${product.img}` // process.env.IMAGES_BASE_URL
+        }
+      />
       <Card.Body>
         <Card.Title>{product.title}</Card.Title>
         <Card.Text>{product.price / 100} EUR</Card.Text>

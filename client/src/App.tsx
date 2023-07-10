@@ -29,7 +29,7 @@ function App(): JSX.Element {
     productForm.append('price', formData.price);
     productForm.append('img', formData.img as Blob);
     axios
-      .post<ProductType>('/products', formData, {
+      .post<ProductType>('/products', productForm, {
         headers: {
           enctype: 'multipart/form-data',
         },
