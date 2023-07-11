@@ -1,13 +1,9 @@
 import React, { memo, useState } from 'react';
 import { Button, Form, InputGroup } from 'react-bootstrap';
 import type { FormProductType } from '../../types/product';
-import type { AddProductHandlerType } from '../../types/productHandlers';
+import { useProductsHandlersDispatchContext } from '../../contexts/productsReducer/contexts';
 
-type AddProductFormType = {
-  addProductHandler: AddProductHandlerType;
-};
-
-function AddProductForm({ addProductHandler }: AddProductFormType): JSX.Element {
+function AddProductForm(): JSX.Element {
   const [formData, setFormData] = useState<FormProductType>({
     title: '',
     description: '',
@@ -26,8 +22,16 @@ function AddProductForm({ addProductHandler }: AddProductFormType): JSX.Element 
     }));
   };
 
-  console.log(formData);
-  console.log('form render');
+  // const { addProductHandler } = useContext(ProductContext);
+
+  // const { addProductHandler } = useProductHandlersContext();
+
+  const { addProductHandler } = useProductsHandlersDispatchContext();
+
+  // const addProductHandler = store?.addProductHandler;
+
+  // console.log(formData);
+  // console.log('form render');
   return (
     <Form
       onSubmit={(e) => {

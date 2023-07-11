@@ -20,7 +20,7 @@ apiProductsRouter
   .route('/')
   .get(async (req, res) => {
     try {
-      const products = await Product.findAll();
+      const products = await Product.findAll({ order: [['createdAt', 'DESC']] });
       return res.json(products);
     } catch (error) {
       return res.status(500).json(error);

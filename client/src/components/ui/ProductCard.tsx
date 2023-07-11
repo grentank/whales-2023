@@ -1,15 +1,19 @@
 import React, { memo } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import type { ProductType } from '../../types/product';
+import { useProductHandlersContext } from '../../contexts/product/handlersContext';
+import { useProductsHandlersDispatchContext } from '../../contexts/productsReducer/contexts';
 
 type ProductCardProps = {
   product: ProductType;
-  deleteHandler: (id: number) => void;
-  arr: never[];
+  // deleteHandler: (id: number) => void;
+  // arr: never[];
 };
 
-function ProductCard({ product, deleteHandler, arr }: ProductCardProps): JSX.Element {
+function ProductCard({ product }: ProductCardProps): JSX.Element {
   console.log('render');
+  // const { deleteHandler } = useProductHandlersContext();
+  const { deleteHandler } = useProductsHandlersDispatchContext();
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img
