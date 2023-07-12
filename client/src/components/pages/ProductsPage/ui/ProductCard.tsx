@@ -1,8 +1,7 @@
 import React, { memo } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import type { ProductType } from '../../types/product';
-import { useProductHandlersContext } from '../../contexts/product/handlersContext';
-import { useProductsHandlersDispatchContext } from '../../contexts/productsReducer/contexts';
+import { useProductsHandlersDispatchContext } from '../../../../contexts/productsReducer/contexts';
+import type { ProductType } from '../../../../types/product';
 
 type ProductCardProps = {
   product: ProductType;

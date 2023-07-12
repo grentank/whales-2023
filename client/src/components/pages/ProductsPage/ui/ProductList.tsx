@@ -1,9 +1,7 @@
 import React, { useMemo } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import type { ProductType } from '../../types/product';
 import ProductCard from './ProductCard';
-import { useProductContext } from '../../contexts/product/productContext';
-import { useProductsReducerContext } from '../../contexts/productsReducer/contexts';
+import { useProductsReducerContext } from '../../../../contexts/productsReducer/contexts';
 
 // type ProductListProps = {
 //   products: ProductType[];

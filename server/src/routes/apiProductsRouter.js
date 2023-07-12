@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-const { Product } = require('../../db/models');
+const { Product, User } = require('../../db/models');
 
 const apiProductsRouter = express.Router();
 
@@ -20,7 +20,7 @@ apiProductsRouter
   .route('/')
   .get(async (req, res) => {
     try {
-      const products = await Product.findAll({ order: [['createdAt', 'DESC']] });
+      const products = await Product.findAll({ order: [['createdAt', 'DESC']], include: User });
       return res.json(products);
     } catch (error) {
       return res.status(500).json(error);
@@ -29,14 +29,15 @@ apiProductsRouter
   .post(upload.single('img'), async (req, res) => {
     try {
       if (!req.body?.title) return res.status(500).json({ message: 'Empty reqbody' });
-      console.log(req.body);
-      console.log(req.file);
+      // console.log(req.body);
+      // console.log(req.file);
       const { title, description, price } = req.body;
       const newProduct = await Product.create({
         title,
         description,
         price: Number(price),
         img: req.file.filename,
+        authorId: req.session.user.id
       });
       return res.json(newProduct);
     } catch (error) {

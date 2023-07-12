@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react';
 import { Button, Form, InputGroup } from 'react-bootstrap';
-import type { FormProductType } from '../../types/product';
-import { useProductsHandlersDispatchContext } from '../../contexts/productsReducer/contexts';
+import type { FormProductType } from '../../../../types/product';
+import { useProductsHandlersDispatchContext } from '../../../../contexts/productsReducer/contexts';
 
 function AddProductForm(): JSX.Element {
   const [formData, setFormData] = useState<FormProductType>({

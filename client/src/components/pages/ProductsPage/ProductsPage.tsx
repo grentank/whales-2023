@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import AddProductForm from './ui/AddProductForm';
 import ProductList from './ui/ProductList';
 
-export default function MainPage(): JSX.Element {
+export default function ProductsPage(): JSX.Element {
   return (
     <Container>
       <Row>
